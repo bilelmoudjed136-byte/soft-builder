@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
 }
 android {
+    namespace 'com.example.generated'
     compileSdkVersion 34
     defaultConfig {
         applicationId "com.example.generated"
