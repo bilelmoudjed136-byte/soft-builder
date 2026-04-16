@@ -6,7 +6,7 @@ android {
     namespace 'com.example.generated'
     compileSdkVersion 34
     defaultConfig {
-        applicationId "com.example.generated"
+        applicationId "com.softbuilder.generated"
         minSdkVersion 21
         targetSdkVersion 34
         versionCode 1
