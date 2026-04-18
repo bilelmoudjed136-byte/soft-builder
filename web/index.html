@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { background-color: #0a0a23; }
+        .card { background-color: rgba(47, 55, 73, 0.5); backdrop-filter: blur(20px); padding: 20px; border-radius: 10px; margin: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        .gradient { background: linear-gradient(to right, #3b82f6, #5b86e5); }
+    </style>
+</head>
+<body class="gradient">
+    <div class="card">
+        <h1 class="text-2xl font-bold text-white">حاسبة علمية</h1>
+        <input type="text" id="display" class="border-2 border-white p-2 w-full text-white text-right" disabled>
+        <div class="grid grid-cols-4 gap-2 mt-4">
+            <button onclick="appendValue('1')" class="bg-white text-slate-900 p-2 rounded">1</button>
+            <button onclick="appendValue('2')" class="bg-white text-slate-900 p-2 rounded">2</button>
+            <button onclick="appendValue('3')" class="bg-white text-slate-900 p-2 rounded">3</button>
+            <button onclick="appendValue('+')" class="bg-white text-slate-900 p-2 rounded">+</button>
+            <button onclick="appendValue('4')" class="bg-white text-slate-900 p-2 rounded">4</button>
+            <button onclick="appendValue('5')" class="bg-white text-slate-900 p-2 rounded">5</button>
+            <button onclick="appendValue('6')" class="bg-white text-slate-900 p-2 rounded">6</button>
+            <button onclick="appendValue('-')" class="bg-white text-slate-900 p-2 rounded">-</button>
+            <button onclick="appendValue('7')" class="bg-white text-slate-900 p-2 rounded">7</button>
+            <button onclick="appendValue('8')" class="bg-white text-slate-900 p-2 rounded">8</button>
+            <button onclick="appendValue('9')" class="bg-white text-slate-900 p-2 rounded">9</button>
+            <button onclick="appendValue('*')" class="bg-white text-slate-900 p-2 rounded">×</button>
+            <button onclick="appendValue('C')" class="bg-white text-slate-900 p-2 rounded">C</button>
+            <button onclick="appendValue('0')" class="bg-white text-slate-900 p-2 rounded">0</button>
+            <button onclick="calculateResult()" class="bg-white text-slate-900 p-2 rounded">=</button>
+            <button onclick="appendValue('/')" class="bg-white text-slate-900 p-2 rounded">÷</button>
+        </div>
+    </div>
+    <script>
+        let currentInput = '';
+        function appendValue(value) {
+            currentInput += value;
+            document.getElementById('display').value = currentInput;
+        }
+        function calculateResult() {
+            try {
+                let result = eval(currentInput);
+                currentInput = result.toString();
+                document.getElementById('display').value = currentInput;
+            } catch (error) {
+                currentInput = 'Error';
+                document.getElementById('display').value = currentInput;
+            }
+        }
+        lucide.createIcons();
+    </script>
+</body>
+</html>
